@@ -8,3 +8,5 @@
  - react-course-2 : an app that gets the geolocation and time of the user and display the appropriate season of the user's location. this app uses the react's class components system to display states, utilize the lifecycle methods and more props functionality.
 
  - react-course-3 : an app that utilizes the Unsplash API to return images from a user input in the search bar. this app acts as practice for user input with forms and events, making API requests with react, and using Ref's for accessing the DOM.
+
+- react-course-4 : using the YouTube API to fetch videos and display them in the UI depending on what the user inputted in the search field. this app utilizes the class component system, lifecycle methods, API requests, forms, event callback functions and props; basically everything I have learned up to this point.
