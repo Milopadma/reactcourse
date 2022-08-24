@@ -1,20 +1,31 @@
 import React from "react";
 import SearchBar from "./components/SearchBar";
+import youtube from "./apis/youtube";
+import VideoList from "./components/VideoList";
 
 export default class App extends React.Component {
   constructor(props) {
     super(props);
+    this.state = { videos: [] };
   }
 
-  onTermSubmit = (term) => {
-    console.log(term);
-  }
+  onTermSubmit = async (term) => {
+    const response = await youtube.get("/search", {
+      params: {
+        q: term,
+      },
+    });
+
+    this.setState({ videos: response.data.items });
+  };
 
   render() {
     return (
       <div className="ui container">
         <h1>YouTube Clone</h1>
-        <SearchBar onFormSubmit={this.onTermSubmit}/>
+        <SearchBar onFormSubmit={this.onTermSubmit} />
+        <span> Fetched: {this.state.videos.length} videos! </span>
+        <VideoList videos={this.state.videos} />
       </div>
     );
   }
