@@ -28,7 +28,8 @@ export default class App extends React.Component {
   render() {
     return (
       <div className="ui container">
-        <h1>YouTube Clone</h1>
+        <h1>YouTube API</h1>
+        <p>Get videos from the YouTube API from your queries below.</p>
         <SearchBar onFormSubmit={this.onTermSubmit} />
         <span> Fetched: {this.state.videos.length} videos! </span>
         {this.state.selectedVideo && (
