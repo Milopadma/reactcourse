@@ -16,7 +16,8 @@ export default class App extends React.Component {
         q: term,
       },
     });
-    this.setState({ videos: response.data.items });
+    let randomNumber = Math.floor(Math.random() * response.data.items.length);
+    this.setState({ videos: response.data.items , selectedVideo: response.data.items[randomNumber]});
   };
 
   onVideoSelect = (video) => {
@@ -25,6 +26,10 @@ export default class App extends React.Component {
     this.setState({ selectedVideo: video });
   };
 
+  componentDidMount() {
+    this.onTermSubmit("reactjs");
+  }
+
   render() {
     return (
       <div className="ui container">
@@ -32,13 +37,21 @@ export default class App extends React.Component {
         <p>Get videos from the YouTube API from your queries below.</p>
         <SearchBar onFormSubmit={this.onTermSubmit} />
         <span> Fetched: {this.state.videos.length} videos! </span>
-        {this.state.selectedVideo && (
-          <VideoDetail video={this.state.selectedVideo} /> //pass in the selected video to VideoDetail
-        )}
-        <VideoList
-          onVideoSelect={this.onVideoSelect}
-          videos={this.state.videos} //pass in the videos array from state
-        />
+        <div className="ui grid">
+          <div className="ui row">
+            <div className="eleven wide column">
+              {this.state.selectedVideo && (
+                <VideoDetail video={this.state.selectedVideo} /> //pass in the selected video to VideoDetail
+              )}
+            </div>
+            <div className="five wide column">
+              <VideoList
+                onVideoSelect={this.onVideoSelect}
+                videos={this.state.videos} //pass in the videos array from state
+              />
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
