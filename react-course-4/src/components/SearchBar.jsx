@@ -5,10 +5,20 @@ export default class SearchBar extends React.Component {
     super(props);
     this.state = { term: "" };
   }
+
+  onInputChange = (term) => { //when the user types in the search bar, this function is called
+    this.setState({ term });
+  };
+
+  onFormSubmit = (event) => { //when the user submits the form, this function is called, callback function passed in as a prop
+    event.preventDefault();
+    this.props.onFormSubmit(this.state.term);
+  };
+
   render() {
     return (
       <div className="search-bar ui segment">
-        <form className="ui form">
+        <form className="ui form" onSubmit={this.onFormSubmit}>
           <div className="field">
             <label>Video search</label>
             <input
@@ -20,9 +30,5 @@ export default class SearchBar extends React.Component {
         </form>
       </div>
     );
-  }
-  onInputChange(term) {
-    this.setState({ term });
-    this.props.onSearchTermChange(term);
   }
 }
