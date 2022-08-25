@@ -1,6 +1,7 @@
 import Accordion from "./components/Accordion";
 import Search from "./components/Search";
 import Dropdown from "./components/Dropdown";
+import { useState } from "react";
 
 const items = [
   {
@@ -32,6 +33,8 @@ const options = [
   },
 ];
 function App() {
+  const [selected, setSelected] = useState(options[0]); //for dropdown
+
   return (
     <div className="App">
       <h1>React Widgets</h1>
@@ -41,7 +44,7 @@ function App() {
       {/* <h3>Wikipedia Search</h3>
       <Search /> */}
       <h3>Dropdown</h3>
-      <Dropdown options={options} />
+      <Dropdown selected={selected} onSelectedChange={setSelected} options={options} />
     </div>
   );
 }

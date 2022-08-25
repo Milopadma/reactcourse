@@ -1,11 +1,17 @@
 import { useState } from "react";
 
-export default function Dropdown({ options }) {
-  const [Selection, setSelection] = useState(null);
+export default function Dropdown({ options, selected, onSelectedChange }) {
+  const [Open, setOpen] = useState(false);
+
   const renderedOptions = options.map((option) => {
+    //dont show currently selected option in the dropdown
+    if (option.value === selected.value) {
+      return null;
+    }
+    //show the options in the dropdown
     return (
       <div key={option.label}>
-        <button>{option.label}</button>
+        <button onClick={() => onSelectedChange(option)}>{option.label}</button>
       </div>
     );
   });
@@ -16,10 +22,15 @@ export default function Dropdown({ options }) {
       <div className="ui selection dropdown">
         <div className="field"></div>
         <label className="label">Select Option</label>
-        <div className="ui selection dropdown visible active">
+        <div
+          onClick={() => setOpen(!Open)} //reverse the open state
+          className={`ui selection dropdown ${Open ? "visible active" : ""}`} //show the dropdown if open is true
+        >
           <i className="dropdown icon"></i>
-          <div className="text">Select Option</div>
-          <div className="menu visible transition">{renderedOptions}</div>
+          <div className="text">{selected.label}</div>
+          <div className={`menu ${Open ? "visible transition" : ""}`}>
+            {renderedOptions}
+          </div>
         </div>
       </div>
     </div>
