@@ -18,6 +18,7 @@ const items = [
 function App() {
   return (
     <div className="App">
+      <h1>React Accordion</h1>
       <br />
       <Accordion items={items} />
     </div>

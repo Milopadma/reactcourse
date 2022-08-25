@@ -3,7 +3,7 @@ import React, { useState } from "react";
 export default function Accordion({ items }) {
   const [activeIndex, setActiveIndex] = useState(null);
   const onTitleClick = (index) => {
-    setActiveIndex(index); 
+    setActiveIndex(index);
   };
 
   const renderedItems = items.map((items, index) => {
@@ -26,11 +26,5 @@ export default function Accordion({ items }) {
       </React.Fragment>
     );
   });
-  return (
-    <div className="ui styled accordion">
-      {renderedItems}
-    </div>
-  ); // return the rendered items
+  return <div className="ui styled accordion">{renderedItems}</div>; // return the rendered items
 }
-
-
