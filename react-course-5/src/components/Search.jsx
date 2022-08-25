@@ -5,24 +5,29 @@ export default function Search() {
   const [Term, setTerm] = useState("ReactJS"); //state hook for the search term
   const [Results, setResults] = useState([]); //state hook for the results
   useEffect(() => {
+    //search function
     const SearchWiki = async () => {
-      //search function
       const { data } = await Axios.get(
         `https://en.wikipedia.org/w/api.php?action=query&list=search&origin=*&format=json&srsearch=${Term}`
       );
       setResults(data.query.search);
     };
 
-    const timeoutID = setTimeout(() => {
-      if (Term) {
-        SearchWiki();
-        console.log("called");
-      }
-    }, 250);
+    if (Term && !Results.length) {
+      SearchWiki();
+    } else {
+      //call the search function when the term changes
+      const timeoutID = setTimeout(() => {
+        if (Term) {
+          SearchWiki();
+        }
+      }, 250);
 
-    return () => {
-      clearTimeout(timeoutID);
-    };
+      //cleanup function
+      return () => {
+        clearTimeout(timeoutID);
+      };
+    }
   }, [Term]); //second argument controls when the effect runs,
   //if nothing, it runs on initial and every render.
   //if empty array, it runs on initial render.
