@@ -4,16 +4,25 @@ import Axios from "axios";
 export default function Search() {
   const [Term, setTerm] = useState("ReactJS"); //state hook for the search term
   const [Results, setResults] = useState([]); //state hook for the results
-  console.log(Results);
   useEffect(() => {
-    const Search = async (term) => {
+    const SearchWiki = async () => {
       //search function
       const { data } = await Axios.get(
-        `https://en.wikipedia.org/w/api.php?action=query&list=search&origin=*&format=json&srsearch=${term}`
+        `https://en.wikipedia.org/w/api.php?action=query&list=search&origin=*&format=json&srsearch=${Term}`
       );
       setResults(data.query.search);
     };
-    Search(Term);
+
+    const timeoutID = setTimeout(() => {
+      if (Term) {
+        SearchWiki();
+        console.log("called");
+      }
+    }, 250);
+
+    return () => {
+      clearTimeout(timeoutID);
+    };
   }, [Term]); //second argument controls when the effect runs,
   //if nothing, it runs on initial and every render.
   //if empty array, it runs on initial render.
@@ -27,13 +36,16 @@ export default function Search() {
           <div className="header">{result.title}</div>
           <div className="description">
             <span dangerouslySetInnerHTML={{ __html: result.snippet }}></span>{" "}
+            {/* !risky */}
           </div>
-          <a
-            className="ui button"
-            href={`https://en.wikipedia.org/?curid=${result.pageid}`}
-          >
-            Go
-          </a>
+          <div className="right floated content">
+            <a
+              className="ui button"
+              href={`https://en.wikipedia.org/?curid=${result.pageid}`}
+            >
+              Go
+            </a>
+          </div>
         </div>
       </div>
     );
