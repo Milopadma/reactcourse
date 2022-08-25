@@ -1,4 +1,5 @@
 import Accordion from "./components/Accordion";
+import Search from "./components/Search";
 
 const items = [
   {
@@ -18,9 +19,12 @@ const items = [
 function App() {
   return (
     <div className="App">
-      <h1>React Accordion</h1>
+      <h1>React Widgets</h1>
       <br />
-      <Accordion items={items} />
+      {/* <h3>Accordion</h3> */}
+      {/* <Accordion items={items} /> */}
+      <h3>Wikipedia Search</h3>
+      <Search />
     </div>
   );
 }
