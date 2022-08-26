@@ -19,21 +19,21 @@ export default function Dropdown({ options, selected, onSelectedChange }) {
     );
   });
 
-  useEffect(() => {
-    document.body.addEventListener(
-      //listen to clicks outside the dropdown
-      "click",
-      () => {
-        if (ref.current.contains(event.target)) {
-          //if the click is inside the dropdown, do nothing
-          return;
-        }
-        //if the click is outside the dropdown
-        setOpen(false);
-      },
-      { capture: true }
-    );
-  }, []);
+useEffect(() => {
+  const onBodyClick = (event) => {
+    if (ref.current.contains(event.target)) {
+      return;
+    }
+    setOpen(false);
+  };
+  document.body.addEventListener("click", onBodyClick, { capture: true });
+
+  return () => {
+    document.body.removeEventListener("click", onBodyClick, {
+      capture: true,
+    });
+  };
+}, []);
 
   return (
     <div>

@@ -34,6 +34,7 @@ const options = [
 ];
 function App() {
   const [selected, setSelected] = useState(options[0]); //for dropdown
+  const [showDropdown, setShowDropdown] = useState(true); //for dropdown
 
   return (
     <div className="App">
@@ -44,7 +45,16 @@ function App() {
       {/* <h3>Wikipedia Search</h3>
       <Search /> */}
       <h3>Dropdown</h3>
-      <Dropdown selected={selected} onSelectedChange={setSelected} options={options} />
+      <button onClick={() => setShowDropdown(!showDropdown)}>
+        toggle dropdown
+      </button>
+      {showDropdown ? (
+        <Dropdown
+          selected={selected}
+          onSelectedChange={setSelected}
+          options={options}
+        />
+      ) : null}
     </div>
   );
 }
