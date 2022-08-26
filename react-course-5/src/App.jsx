@@ -4,6 +4,9 @@ import Dropdown from "./components/Dropdown";
 import { useState } from "react";
 import Translate from "./components/Translate";
 import Users from "./components/Users";
+import Route from "./components/Route";
+
+import Header from "./components/Header";
 
 const items = [
   {
@@ -37,43 +40,20 @@ const options = [
 ];
 
 //for page routing
-const showAccordion = () => {
-  if (window.location.pathname === "/") {
-    return <Accordion items={items} />;
-  }
-};
 
-const showList = () => {
-  if (window.location.pathname === "/list") {
-    return <Search />;
-  }
-};
-
-const showDropdownComponent = () => {
-  if (window.location.pathname === "/dropdown") {
-    return (
-      <div>
-        <h3>Dropdown</h3>
-        <button onClick={() => setShowDropdown(!showDropdown)}>
-          toggle dropdown
-        </button>
-        {showDropdown ? (
-          <Dropdown
-            selected={selected}
-            onSelectedChange={setSelected}
-            options={options}
-          />
-        ) : null}
-      </div>
-    );
-  }
-};
-
-const showTranslate = () => {
-  if (window.location.pathname === "/translate") {
-    return <Translate />;
-  }
-};
+// const showDropdownComponent = () => {
+//   if (window.location.pathname === "/dropdown") {
+//     return (
+//       <div>
+//         <h3>Dropdown</h3>
+//         <button onClick={() => setShowDropdown(!showDropdown)}>
+//           toggle dropdown
+//         </button>
+//         {showDropdown ? <Dropdown /> : null}
+//       </div>
+//     );
+//   }
+// };
 
 export default function App() {
   const [selected, setSelected] = useState(options[0]); //for dropdown
@@ -81,12 +61,27 @@ export default function App() {
 
   return (
     <div>
-      <h1 className="ui header one center aligned">React Widgets</h1>
       <br />
-      {showAccordion()}
-      {showList()}
-      {showDropdownComponent()}
-      {showTranslate()}
+      <h1 className="ui header one center aligned">React Widgets</h1>
+      <Header />
+      <br />
+      <Route path="/">
+        <Accordion items={items} />
+      </Route>
+      <Route path="/list">
+        <Search />
+      </Route>
+      <Route path="/translate">
+        <Translate />
+      </Route>
+      <Route path="/dropdown">
+        <Dropdown
+          label="select a color"
+          selected={selected}
+          onSelectedChange={setSelected}
+          options={options}
+        />
+      </Route>
     </div>
   );
 }
