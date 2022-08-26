@@ -1,14 +1,25 @@
-
+import Link from "./Link";
 
 const Header = () => {
-    return (
-        <div className="ui secondary pointing menu">
-            <a className="item" href="/"> Accordion </a>
-            <a className="item" href="/dropdown"> Dropdown </a>
-            <a className="item" href="/list"> List </a>
-            <a className="item" href="/translate"> Translate </a>
-
-        </div>
-    );
-    }
+  return (
+    <div className="ui secondary pointing menu">
+      <Link className="item" href="/">
+        {" "}
+        Accordion{" "}
+      </Link>
+      <Link className="item" href="/dropdown">
+        {" "}
+        Dropdown{" "}
+      </Link>
+      <Link className="item" href="/list">
+        {" "}
+        List{" "}
+      </Link>
+      <Link className="item" href="/translate">
+        {" "}
+        Translate{" "}
+      </Link>
+    </div>
+  );
+};
 export default Header;
