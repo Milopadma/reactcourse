@@ -20,17 +20,6 @@ const options = [
 export default function Translate() {
   const [language, setLanguage] = useState(options[0]);
   const [text, setText] = useState("");
-  const [debouncedText, setDebouncedText] = useState(text); // debounce the text input
-
-  useEffect(() => {
-    const timeoutId = setTimeout(() => {
-      setDebouncedText(text);
-    }, 1000);
-    return () => {
-      clearTimeout(timeoutId);
-    };
-  }, [text]);
-
 
   return (
     <div>
