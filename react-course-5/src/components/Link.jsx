@@ -1,5 +1,9 @@
 const Link = ({ className, href, children }) => {
   const onClick = (event) => {
+    if (event.metaKey || event.ctrlKey) {
+      //if the meta key or ctrl key is pressed, open in a new tab (do normal behavior)
+      return;
+    }
     event.preventDefault();
     window.history.pushState(null, "", href);
     const navEvent = new PopStateEvent("popstate");
