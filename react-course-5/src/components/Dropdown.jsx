@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 
-export default function Dropdown({ options, selected, onSelectedChange }) {
+export default function Dropdown({ options, selected, onSelectedChange, label }) {
   const [Open, setOpen] = useState(false);
   const ref = useRef();
 
@@ -40,7 +40,7 @@ useEffect(() => {
       <h1>Dropdown</h1>
       <div ref={ref} className="ui form">
         <div className="field"></div>
-        <label className="label">Select Option</label>
+        <label className="label">{label}</label>
         <div
           onClick={() => setOpen(!Open)} //reverse the open state
           className={`ui selection dropdown ${Open ? "visible active" : ""}`} //show the dropdown if open is true
