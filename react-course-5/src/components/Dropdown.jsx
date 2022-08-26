@@ -1,6 +1,11 @@
 import { useState, useEffect, useRef } from "react";
 
-export default function Dropdown({ options, selected, onSelectedChange, label }) {
+export default function Dropdown({
+  options,
+  selected,
+  onSelectedChange,
+  label,
+}) {
   const [Open, setOpen] = useState(false);
   const ref = useRef();
 
@@ -19,25 +24,24 @@ export default function Dropdown({ options, selected, onSelectedChange, label })
     );
   });
 
-useEffect(() => {
-  const onBodyClick = (event) => {
-    if (ref.current.contains(event.target)) {
-      return;
-    }
-    setOpen(false);
-  };
-  document.body.addEventListener("click", onBodyClick, { capture: true });
+  useEffect(() => {
+    const onBodyClick = (event) => {
+      if (ref.current.contains(event.target)) {
+        return;
+      }
+      setOpen(false);
+    };
+    document.body.addEventListener("click", onBodyClick, { capture: true });
 
-  return () => {
-    document.body.removeEventListener("click", onBodyClick, {
-      capture: true,
-    });
-  };
-}, []);
+    return () => {
+      document.body.removeEventListener("click", onBodyClick, {
+        capture: true,
+      });
+    };
+  }, []);
 
   return (
     <div>
-      <h1>Dropdown</h1>
       <div ref={ref} className="ui form">
         <div className="field"></div>
         <label className="label">{label}</label>
