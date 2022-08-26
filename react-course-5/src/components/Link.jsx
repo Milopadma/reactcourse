@@ -11,7 +11,8 @@ const Link = ({ className, href, children }) => {
   };
   return (
     <a className={className} onClick={onClick} href={href}>
-      {children}
+      {children} 
+      {/* the children refers to the Header text elements */}
     </a>
   );
 };
