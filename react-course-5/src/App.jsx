@@ -35,33 +35,58 @@ const options = [
     value: "blue",
   },
 ];
-function App() {
+
+//for page routing
+const showAccordion = () => {
+  if (window.location.pathname === "/") {
+    return <Accordion items={items} />;
+  }
+};
+
+const showList = () => {
+  if (window.location.pathname === "/list") {
+    return <Search />;
+  }
+};
+
+const showDropdownComponent = () => {
+  if (window.location.pathname === "/dropdown") {
+    return (
+      <div>
+        <h3>Dropdown</h3>
+        <button onClick={() => setShowDropdown(!showDropdown)}>
+          toggle dropdown
+        </button>
+        {showDropdown ? (
+          <Dropdown
+            selected={selected}
+            onSelectedChange={setSelected}
+            options={options}
+          />
+        ) : null}
+      </div>
+    );
+  }
+};
+
+const showTranslate = () => {
+  if (window.location.pathname === "/translate") {
+    return <Translate />;
+  }
+};
+
+export default function App() {
   const [selected, setSelected] = useState(options[0]); //for dropdown
   const [showDropdown, setShowDropdown] = useState(true); //for dropdown
 
   return (
-    <div className="App">
-      <h1>React Widgets</h1>
+    <div>
+      <h1 className="ui header one center aligned">React Widgets</h1>
       <br />
-      {/* <h3>Accordion</h3> */}
-      {/* <Accordion items={items} /> */}
-      {/* <h3>Wikipedia Search</h3>
-      <Search /> */}
-      {/* <h3>Dropdown</h3>
-      <button onClick={() => setShowDropdown(!showDropdown)}>
-        toggle dropdown
-      </button>
-      {showDropdown ? (
-        <Dropdown
-          selected={selected}
-          onSelectedChange={setSelected}
-          options={options}
-        />
-      ) : null} */}
-      <Translate />
-      {/* <Users /> */}
+      {showAccordion()}
+      {showList()}
+      {showDropdownComponent()}
+      {showTranslate()}
     </div>
   );
 }
-
-export default App;
