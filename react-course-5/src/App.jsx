@@ -64,7 +64,7 @@ export default function App() {
       <br />
       <h1 className="ui header one center aligned">React Widgets</h1>
       {/* nav */}
-      <Header /> 
+      <Header />
       <br />
       <Route path="/">
         <Accordion items={items} />
