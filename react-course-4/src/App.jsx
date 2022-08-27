@@ -80,11 +80,8 @@ const App = () => {
     setSelectedVideo(response.data.items[randomNumber]);
   };
 
-  const onVideoSelect = (video) => {
-    //when the user selects a video, set the state to the selected video
-    //a callback function passed in to child component VideoList and then down to VideoItem
-    setSelectedVideo(video);
-  };
+  //when the user selects a video, set the state to the selected video
+  //a callback function passed in to child component VideoList and then down to VideoItem
   return (
     <div className="ui container">
       <h1>YouTube API</h1>
@@ -100,7 +97,7 @@ const App = () => {
           </div>
           <div className="five wide column">
             <VideoList
-              onVideoSelect={onVideoSelect}
+              onVideoSelect={setSelectedVideo}
               videos={videos} //pass in the videos array from state
             />
           </div>
