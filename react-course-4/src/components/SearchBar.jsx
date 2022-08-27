@@ -39,11 +39,6 @@ import { useState } from "react";
 const SearchBar = ({ onFormSubmit }) => {
   const [term, setTerm] = useState("");
 
-  const onInputChange = (term) => {
-    //when the user types in the search bar, this function is called
-    setTerm(term);
-  };
-
   const onSubmit = (event) => {
     //when the user submits the form, this function is called, callback function passed in as a prop
     event.preventDefault();
@@ -54,7 +49,11 @@ const SearchBar = ({ onFormSubmit }) => {
       <form className="ui form" onSubmit={onSubmit}>
         <div className="field">
           <label>Video search</label>
-          <input type="text" value={term} onChange={onInputChange} />
+          <input
+            type="text"
+            value={term}
+            onChange={(event) => setTerm(event.target.value)}
+          />
         </div>
       </form>
     </div>
