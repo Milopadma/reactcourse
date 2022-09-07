@@ -1,9 +1,9 @@
-//reducers
-
+//this file combines all the reducers into one reducer
 import { combineReducers } from "redux";
+import postsReducer from "./postsReducer";
+import userReducer from "./userReducer";
 
-const reducers = combineReducers({
-  replaceMe: () => "hi there",
+export default combineReducers({
+  posts: postsReducer,
+  users: userReducer,
 });
-
-export default reducers;
