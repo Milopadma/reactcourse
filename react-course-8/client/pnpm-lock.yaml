@@ -9,6 +9,7 @@ specifiers:
   react-redux: ^8.0.2
   react-router-dom: '5'
   redux: ^4.2.0
+  redux-form: ^8.3.8
   vite: ^3.1.0
 
 dependencies:
@@ -17,6 +18,7 @@ dependencies:
   react-redux: 8.0.2_yjtsim5uvgjttslbpqb5so5y3m
   react-router-dom: 5.3.3_react@18.2.0
   redux: 4.2.0
+  redux-form: 8.3.8_3ehcaq2n4jukulvcxg5dqcyv5y
 
 devDependencies:
   '@types/react': 18.0.18
@@ -460,6 +462,10 @@ packages:
     resolution: {integrity: sha512-E21saXLt2eTDaTxgUtiJtBUqanF9A32wZasAwDZ8gvrqXoxrBrbwtDCx7c/PQTLp81wj4X0OLDeoGQg7eMo3+w==}
     dev: true
 
+  /es6-error/4.1.1:
+    resolution: {integrity: sha512-Um/+FxMr9CISWh0bi5Zv0iOD+4cFh5qLeks1qhAopKVAJw3drgKbKySikp7wGhDL0HPeaja0P5ULZrxLkniUVg==}
+    dev: false
+
   /esbuild-android-64/0.15.7:
     resolution: {integrity: sha512-p7rCvdsldhxQr3YHxptf1Jcd86dlhvc3EQmQJaZzzuAxefO9PvcI0GLOa5nCWem1AJ8iMRu9w0r5TG8pHmbi9w==}
     engines: {node: '>=12'}
@@ -730,11 +736,21 @@ packages:
       react-is: 16.13.1
     dev: false
 
+  /invariant/2.2.4:
+    resolution: {integrity: sha512-phJfQVBuaJM5raOpJjSfkiD6BpbCE4Ns//LaXl6wGYtUBY83nWS6Rf9tXm2e8VaK60JEjYldbPif/A2B1C2gNA==}
+    dependencies:
+      loose-envify: 1.4.0
+    dev: false
+
   /is-core-module/2.10.0:
     resolution: {integrity: sha512-Erxj2n/LDAZ7H8WNJXd9tw38GYM3dv8rk8Zcs+jJuxYTW7sozH+SS8NtrSjVL1/vpLvWi1hxy96IzjJ3EHTJJg==}
     dependencies:
       has: 1.0.3
     dev: true
+
+  /is-promise/2.2.2:
+    resolution: {integrity: sha512-+lP4/6lKUBfQjZ2pdxThZvLUAafmZb8OAxFb8XXtiQmS35INgr85hdOGoEs124ez1FCnZJt6jau/T+alh58QFQ==}
+    dev: false
 
   /isarray/0.0.1:
     resolution: {integrity: sha512-D2S+3GLxWH+uhrNEcoh/fnmYeP8E8/zHl644d/jdA0g2uyXvy3sb0qxotE+ne0LtccHknQzWwZEzhak7oJ0COQ==}
@@ -754,6 +770,10 @@ packages:
     engines: {node: '>=6'}
     hasBin: true
     dev: true
+
+  /lodash/4.17.21:
+    resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
+    dev: false
 
   /loose-envify/1.4.0:
     resolution: {integrity: sha512-lyuxPGr/Wfhrlem2CL/UcnUc1zcqKAImBDzukY7Y5F/yQiNdko6+fRLevlw1HgMySw7f611UIY408EtxRSoK3Q==}
@@ -926,6 +946,31 @@ packages:
     engines: {node: '>=0.10.0'}
     dependencies:
       loose-envify: 1.4.0
+    dev: false
+
+  /redux-form/8.3.8_3ehcaq2n4jukulvcxg5dqcyv5y:
+    resolution: {integrity: sha512-PzXhA0d+awIc4PkuhbDa6dCEiraMrGMyyDlYEVNX6qEyW/G2SqZXrjav5zrpXb0CCeqQSc9iqwbMtYQXbJbOAQ==}
+    engines: {node: '>=8.10'}
+    peerDependencies:
+      immutable: ^3.8.2 || ^4.0.0
+      react: ^16.4.2 || ^17.0.0
+      react-redux: ^6.0.1 || ^7.0.0
+      redux: ^3.7.2 || ^4.0.0
+    peerDependenciesMeta:
+      immutable:
+        optional: true
+    dependencies:
+      '@babel/runtime': 7.19.0
+      es6-error: 4.1.1
+      hoist-non-react-statics: 3.3.2
+      invariant: 2.2.4
+      is-promise: 2.2.2
+      lodash: 4.17.21
+      prop-types: 15.8.1
+      react: 18.2.0
+      react-is: 16.13.1
+      react-redux: 8.0.2_yjtsim5uvgjttslbpqb5so5y3m
+      redux: 4.2.0
     dev: false
 
   /redux/4.2.0:
