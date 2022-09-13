@@ -23,9 +23,10 @@ export const signOut = () => {
 };
 
 // createStream action creator, takes formValues and posts to axios json db
-export const createStream = (formValues) => async (dispatch) => {
-  const response = await streams.post("/streams", formValues);
-  dispatch({ type: CREATE_STREAM, payload: response.data });
+export const createStream = (formValues) => async (dispatch, getState) => {
+  const { userId } = getState().auth; // get the userId from the auth reducer
+  const response = await streams.post("/streams", { ...formValues, userId }); // post to the json db
+  dispatch({ type: CREATE_STREAM, payload: response.data }); // dispatch the action
 };
 
 // fetchStreams action creator, gets all streams from axios json db
