@@ -1,5 +1,7 @@
 import React from "react";
 import { Field, reduxForm } from "redux-form/dist/redux-form";
+import { connect } from "react-redux";
+import { createStream } from "../../actions";
 
 class StreamCreate extends React.Component {
   //helper method 'renderError' to display error messages from validate()

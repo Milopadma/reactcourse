@@ -1,5 +1,5 @@
-
-import {SIGN_IN, SIGN_OUT} from "../actions/types";
+import streams from "../apis/streams";
+import { SIGN_IN, SIGN_OUT } from "../actions/types";
 
 export const signIn = (userId) => {
   return {
@@ -12,4 +12,9 @@ export const signOut = () => {
   return {
     type: SIGN_OUT,
   };
+};
+
+// createStream action creator, takes formValues and posts to axios json db
+export const createStream = (formValues) => async (dispatch) => {
+  streams.post("/streams", formValues);
 };
