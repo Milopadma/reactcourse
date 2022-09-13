@@ -34,21 +34,19 @@
       "id": 6
     },
     {
-      "description": "new stream desc",
-      "title": "new stream 20",
+      "description": "patch request here",
+      "title": "patch request here",
       "userId": "106024862380307267717",
       "id": 7
     },
     {
-      "description": "bew",
-      "title": "eww",
-      "userId": "106024862380307267717",
+      "title": "new and edited",
+      "description": "new and edited",
       "id": 8
     },
     {
-      "title": "newRefactoredCreateStream",
-      "description": "newRefactoredCreateStream",
-      "userId": "106024862380307267717",
+      "title": "new",
+      "description": "newedited",
       "id": 9
     }
   ]

@@ -46,8 +46,9 @@ export const fetchStream = (id) => async (dispatch) => {
 
 // editStream action creator, takes id and formValues and puts to axios json db
 export const editStream = (id, formValues) => async (dispatch) => {
-  const response = await streams.put(`/streams/${id}`, formValues);
+  const response = await streams.patch(`/streams/${id}`, formValues);
   dispatch({ type: EDIT_STREAM, payload: response.data });
+  history.push("/"); // programmatically navigate the user to the root route
 };
 
 // deleteStream action creator, takes id and deletes from axios json db
