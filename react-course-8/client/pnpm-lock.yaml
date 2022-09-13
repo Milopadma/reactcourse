@@ -5,7 +5,7 @@ specifiers:
   '@types/react-dom': ^18.0.6
   '@vitejs/plugin-react': ^2.1.0
   axios: ^0.27.2
-  history: ^5.3.0
+  history: 4.10.1
   lodash: ^4.17.21
   react: ^18.2.0
   react-dom: ^18.2.0
@@ -18,7 +18,7 @@ specifiers:
 
 dependencies:
   axios: 0.27.2
-  history: 5.3.0
+  history: 4.10.1
   lodash: 4.17.21
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
@@ -780,12 +780,6 @@ packages:
       tiny-invariant: 1.2.0
       tiny-warning: 1.0.3
       value-equal: 1.0.1
-    dev: false
-
-  /history/5.3.0:
-    resolution: {integrity: sha512-ZqaKwjjrAYUYfLG+htGaIIZ4nioX2L70ZUMIFysS3xvBsSG4x/n1V6TXV3N8ZYNuFGlDirFg32T7B6WOUPDYcQ==}
-    dependencies:
-      '@babel/runtime': 7.19.0
     dev: false
 
   /hoist-non-react-statics/3.3.2:
