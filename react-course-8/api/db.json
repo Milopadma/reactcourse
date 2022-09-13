@@ -1,9 +1,14 @@
-{  "streams": [
+{
+  "streams": [
     {
       "title": "test1",
       "description": "testDesc1",
       "id": 1
+    },
+    {
+      "title": "test",
+      "description": "test",
+      "id": 2
     }
   ]
-
 }
