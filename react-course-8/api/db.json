@@ -1,0 +1,28 @@
+{
+    "streams": [
+        {
+            "stream": {
+                "name": "stream1",
+                "type": "stream",
+                "url": "http://localhost:8080/stream1"
+            },
+            "processor": {
+                "name": "processor1",
+                "type": "processor",
+                "url": "http://localhost:8080/processor1"
+            }
+        },
+        {
+            "stream": {
+                "name": "stream2",
+                "type": "stream",
+                "url": "http://localhost:8080/stream2"
+            },
+            "processor": {
+                "name": "processor2",
+                "type": "processor",
+                "url": "http://localhost:8080/processor2"
+            }
+        }
+    ]
+}
