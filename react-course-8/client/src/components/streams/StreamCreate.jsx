@@ -27,15 +27,15 @@ class StreamCreate extends React.Component {
     );
   };
 
-  onSubmit(formValues) {
-    console.log(formValues);
+  onSubmit = (formValues) => {
+    this.props.createStream(formValues);
   }
 
   render() {
     return (
       <form
         onSubmit={this.props.handleSubmit(this.onSubmit)}
-        className="ui form error"
+      className="ui form error"
       >
         <Field name="title" component={this.renderInput} label="Enter Title" />
         <Field
@@ -61,8 +61,11 @@ const validate = (formValues) => {
   return errors;
 };
 
-//"connect" a component to the redux store
-export default reduxForm({
+// reduxForm is a function that is called by redux-form to connect the form to the redux store
+const formWrapped = reduxForm({
   form: "streamCreate",
   validate: validate,
 })(StreamCreate);
+
+//"connect" a component to the redux store
+export default connect(null, { createStream })(formWrapped);
