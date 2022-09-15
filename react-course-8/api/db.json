@@ -16,21 +16,15 @@
       "id": 3
     },
     {
-      "title": "newuserid1",
-      "description": "newdescuserid1",
-      "userId": "106024862380307267717",
-      "id": 4
-    },
-    {
-      "title": "111",
-      "description": "111",
-      "userId": "106024862380307267717",
-      "id": 5
-    },
-    {
       "title": "new",
       "description": "newedited",
       "id": 9
+    },
+    {
+      "title": "a new stream over here",
+      "description": "to test the application",
+      "userId": "106024862380307267717",
+      "id": 10
     }
   ]
 }
